@@ -8,9 +8,10 @@ if mount | grep -q "/boot/efi"; then
 fi
 partition=$(mount | grep "on / type ext4" | awk '{print $1;}')
 devicename="${partition::-1}"
-#echo "devicename $devicename"
+echo "devicename $devicename"
 efidevice="${devicename}1"
-#echo "efidevice $efidevice"
+echo "efidevice $efidevice"
 uuid=$(blkid -o value -s UUID $efidevice)
+echo "EFI partition UUID is: $uuid"
 sudo bash -c "echo UUID=$uuid /boot/efi auto defaults 0 0 >> /etc/fstab"
 echo "Your /etc/fstab is prepared for booting from macbook GRUB"

@@ -12,4 +12,4 @@ echo "w - write and exit"
 read -n 1 -r -s -p $'Press enter to continue...\n'
 sudo gdisk $devicename
 echo "Formatting EFI partition to hfsplus filesystem..."
-sudo mkfs.hfsplus ${devicename}1 -v Ubuntu
+yes | sudo mkfs.hfsplus ${devicename}1 -v Ubuntu

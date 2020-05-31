@@ -11,5 +11,5 @@ if [ ! -f /usr/share/mactel-boot-logo/ubuntu.icns ]; then
     echo "Ubuntu icon not present! Cannot continue"
     exit 1
 fi
-sudo apt-get update
-sudo apt-get install hfsprogs gdisk grub-efi-amd64
+#sudo apt-get update
+sudo apt-get -y install hfsprogs gdisk grub-efi-amd64
