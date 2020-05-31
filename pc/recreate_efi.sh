@@ -11,4 +11,5 @@ echo "n - new partition table"
 echo "w - write and exit"
 read -n 1 -r -s -p $'Press enter to continue...\n'
 sudo gdisk $devicename
-echo "Please run now manually command: sudo mkfs.hfsplus ${devicename}1 -v Ubuntu"
+echo "Formatting EFI partition to hfsplus filesystem..."
+sudo mkfs.hfsplus ${devicename}1 -v Ubuntu

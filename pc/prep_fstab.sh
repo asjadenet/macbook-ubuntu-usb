@@ -2,7 +2,7 @@
 sudo sed -i '/\/boot\/efi/d' /etc/fstab
 
 if mount | grep -q "/boot/efi"; then
-    efipartition=$(mount | grep -q "/boot/efi" | awk '{print $1;}')
+    efipartition=$(mount | grep "/boot/efi" | awk '{print $1;}')
     echo "efi partition /boot/efi  device is $efipartition, trying to unmount.."
     sudo umount $efipartition
 fi
