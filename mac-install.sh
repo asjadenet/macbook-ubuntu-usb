@@ -18,10 +18,14 @@ if mount | grep -q "/boot/efi type hfsplus"; then
     sudo sed -i 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=0.1/' /etc/default/grub
     sudo grub-mkconfig -o /boot/grub/grub.cfg
 
-    echo "adding the Ubuntu icon..."
+    echo "Adding the Ubuntu icon..."
     sudo cp /usr/share/mactel-boot-logo/ubuntu.icns /boot/efi/.VolumeIcon.icns
 
-    echo "Done. Press and hold the option/alt key for booting to Ubuntu"
+    echo "Done. Press any key to continue to system power off"
+    echo "Please remove Ubuntu installer USB disk before switching on."
+    echo "Press and hold the option/alt key for booting to Ubuntu"
+    read -n1 -r
+    sudo poweroff
 else
-    echo "efi is unmounted, exiting"
+    echo "EFI is unmounted, exiting"
 fi

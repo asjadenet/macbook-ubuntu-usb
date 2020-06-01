@@ -9,7 +9,8 @@ echo "p - print partition table"
 echo "d - delete partition table"
 echo "n - new partition table"
 echo "w - write and exit"
-read -n 1 -r -s -p $'Press enter to continue...\n'
+echo "Press any key to continue..."
+read -n1 -r
 sudo gdisk $devicename
 echo "Formatting EFI partition to hfsplus filesystem..."
 sudo mkfs.hfsplus ${devicename}1 -v Ubuntu
